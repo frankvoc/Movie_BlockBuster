@@ -28,5 +28,20 @@ namespace BlockBuster.Test
 
             Assert.Equal(3, checkedOutMoviesCount);
         }
+        [Fact]
+        public void TestGetMoviesByGenreDescription()
+        {
+            var movies = BasicFunctions.GetMoviesByGenreDescription("Drama");
+            Assert.NotNull(movies);
+            Assert.All(movies, m => Assert.Equal("Drama", m.Genre.GenreDescr));
+        }
+
+        [Fact]
+        public void TestGetMoviesByDirectorLastName()
+        {
+            var movies = BasicFunctions.GetMoviesByDirectorLastName("Spielberg");
+            Assert.NotNull(movies);
+            Assert.All(movies, m => Assert.Equal("Spielberg", m.Director.LastName));
+        }
     }
 }
